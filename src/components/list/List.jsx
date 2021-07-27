@@ -4,7 +4,7 @@ import { useRef } from "react"
 import ListItem from "../listItem/ListItem"
 import "./list.scss"
 
-const List = () => {
+const List = ({type}) => {
 
   const [slideNumber, setSlideNumber] = useState(0);
 
@@ -24,7 +24,7 @@ const List = () => {
 
   return (
     <div className="list">
-      <span className="listTitle">Continue To Watch</span>
+      <span className="listTitle">{type}</span>
       <div className="wrapper">
         <ArrowBackIosOutlined className="sliderArrow left" onClick={()=>handleClickFunction("left")} />
         <div className="container" ref={listRef} >

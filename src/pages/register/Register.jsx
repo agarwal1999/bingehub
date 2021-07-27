@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useState } from "react"
 import "./register.scss"
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -20,7 +21,7 @@ const Register = () => {
       <div className="top">
         <div className="wrapper">
           <h2 className="logo">BingeHub</h2>
-          <button className="loginButton">Sign In</button>
+          <Link to="/login" className="loginButton link">Sign In</Link>
         </div>
       </div>
       <div className="container">

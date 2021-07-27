@@ -8,10 +8,10 @@ const Home = ({type}) => {
     <div className="home">
       <Navbar/>
       <Featured type={type}/>
-      <List/>
-      <List/>
-      <List/>
-      <List/>
+      <List type={"Continue to Watch"} />
+      <List type={"Bollywood"} />
+      <List type={"Editors' Picks"} />
+      <List type={"Critically Acclaimed"} />
     </div>
   )
 }
