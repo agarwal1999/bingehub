@@ -1,6 +1,7 @@
 import { Add, PlayArrow, ThumbDownAltOutlined, ThumbUpAltOutlined } from "@material-ui/icons"
 import { useState } from "react"
 import "./listItem.scss"
+import { Link } from "react-router-dom"
 
 const ListItem = ({index}) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -17,27 +18,29 @@ const ListItem = ({index}) => {
         alt=""
       />
       {isHovered && (
-        <>
-          <video src={trailer} autoPlay={true} loop />
-          <div className="itemInfo">
-            <div className="icons">
-              <PlayArrow className="icon" />
-              <Add className="icon" />
-              <ThumbUpAltOutlined className="icon" />
-              <ThumbDownAltOutlined className="icon" />
+        <Link to="/watch" className="link">
+          <>
+            <video src={trailer} autoPlay={true} loop />
+            <div className="itemInfo">
+              <div className="icons">
+                <PlayArrow className="icon" />
+                <Add className="icon" />
+                <ThumbUpAltOutlined className="icon" />
+                <ThumbDownAltOutlined className="icon" />
+              </div>
+              <div className="itemInfoTop">
+                <span>1 hour 14 mins</span>
+                <span className="limit">+16</span>
+                <span>1999</span>
+              </div>
+              <div className="desc">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati dolore autem voluptates 
+                debitis odit.
+              </div>
+              <div className="genre">Action</div>
             </div>
-            <div className="itemInfoTop">
-              <span>1 hour 14 mins</span>
-              <span className="limit">+16</span>
-              <span>1999</span>
-            </div>
-            <div className="desc">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati dolore autem voluptates 
-              debitis odit.
-            </div>
-            <div className="genre">Action</div>
-          </div>
-        </>
+          </>
+        </Link>
       )}
     </div>
   )

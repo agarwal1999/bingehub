@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom"
 import "./login.scss"
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
           <input type="email" placeholder="Email or Phone Number" />
           <input type="password" placeholder="Password" />
           <button className="loginButton">Sign In</button>
-          <span>New To BingeHub? <b>Sign Up Now.</b> </span>
+          <span>New To BingeHub? <Link to="/register" className="link"><b>Sign Up Now.</b></Link> </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a 
             bot. <b>Learn more</b>
