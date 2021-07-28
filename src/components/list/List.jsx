@@ -1,12 +1,24 @@
 import {ArrowBackIosOutlined, ArrowForwardIosOutlined } from "@material-ui/icons"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRef } from "react"
 import ListItem from "../listItem/ListItem"
 import "./list.scss"
+import axios from "axios";
 
-const List = ({type}) => {
+const List = ({type, number}) => {
 
   const [slideNumber, setSlideNumber] = useState(0);
+  const [movieData, setMovieData] = useState('');
+
+  useEffect(()=>{
+    fetchData();
+  },[]);  
+
+  const fetchData = ()=>{
+    axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=07cf1cdd760e761bafa4263ecc326500&language=en-US&page=${number}`)
+    .then(response=>setMovieData(response.data.results))
+    .catch(err=>console.log(err))
+  }
 
   const listRef = useRef();
 
@@ -16,7 +28,7 @@ const List = ({type}) => {
       listRef.current.style.transform = `translateX(${230 + distance}px)`
       setSlideNumber(slideNumber-1);
     }
-    if(direction==="right" && slideNumber<5){
+    if(direction==="right" && slideNumber<15){
       listRef.current.style.transform = `translateX(${-230 + distance}px)`
       setSlideNumber(slideNumber+1);
     }
@@ -28,16 +40,16 @@ const List = ({type}) => {
       <div className="wrapper">
         <ArrowBackIosOutlined className="sliderArrow left" onClick={()=>handleClickFunction("left")} />
         <div className="container" ref={listRef} >
-          <ListItem index={0} />
-          <ListItem index={1} />
-          <ListItem index={2} />
-          <ListItem index={3} />
-          <ListItem index={4} />
-          <ListItem index={5} />
-          <ListItem index={6} />
-          <ListItem index={7} />
-          <ListItem index={8} />
-          <ListItem index={9} />
+          {movieData.length > 0 && movieData.map((movie, i)=>(
+            <ListItem 
+              index={i} 
+              title={movie.original_title} 
+              date={movie.release_date} 
+              info={movie.overview}
+              image={movie.poster_path}
+              age_limit={movie.adult}
+            />
+          ))}
         </div>
         <ArrowForwardIosOutlined className="sliderArrow right" onClick={()=>handleClickFunction("right")} />
       </div>

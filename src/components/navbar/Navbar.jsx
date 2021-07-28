@@ -35,7 +35,7 @@ const Navbar = () => {
             <ArrowDropDown className="icon"/>
             <div className="options">
               <span>Settings</span>
-              <span>Logout</span>
+              <Link to="/login" className="link" style={{paddingBottom:"10px"}}><span>Logout</span></Link>
             </div>
           </div>
         </div>

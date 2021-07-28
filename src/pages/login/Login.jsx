@@ -16,7 +16,7 @@ const Login = () => {
           <h1>Sign In</h1>
           <input type="email" placeholder="Email or Phone Number" />
           <input type="password" placeholder="Password" />
-          <button className="loginButton">Sign In</button>
+          <Link to="/" className="link"><button className="loginButton">Sign In</button></Link>
           <span>New To BingeHub? <Link to="/register" className="link"><b>Sign Up Now.</b></Link> </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a 

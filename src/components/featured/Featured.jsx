@@ -35,9 +35,7 @@ const Featured = ({type}) => {
           alt=""
         />
         <span className="desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
+          Following the death of District Attorney Harvey Dent, Batman assumes responsibility for Dent's crimes to protect the late attorney's reputation and is subsequently hunted by the Gotham City Police Department. The Dark Knight resurfaces to protect a city that has branded him an enemy.
         </span>
         <div className="buttons">
           <button className="play">
